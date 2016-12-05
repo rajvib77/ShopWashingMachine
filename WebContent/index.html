@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Products Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+	<script src="js/ang.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+
+<body ng-app="product_portal">
+	<div ng-controller="product_portal_control" style="margin-left:40px;margin-right:30px;">
+
+	
+	<div ng-show="more_details" style="border:solid; width: 100%">
+		<center>Additional Details</center>
+		<img src="{{imageUrl}}">
+		<div style="float: right;">
+			Brand Name:{{brandName}}<br/>
+			Item No.: {{itemNo}} <br/>
+			Product Id: {{productId}}<br/>
+			Price: {{price}}<br/>
+			Product Rating: {{pRating}}<br/>
+			Product Description: {{pDesc}}<br/>
+		<button>Add to Cart</button> <br/> <br/><br/><br/><br/>
+		</div>
+		
+	</div>
+
+	<div style="float:left;margin-left:80px;margin-right:80px " ng-repeat="p in products">
+	<img src="{{p.imageURLs.sm}}" style="height150px;width:150px"><br>
+	<center>
+	Brand Name: {{p.ProductInfo.Brand}} <br/>
+	Item No. {{p.ProductInfo.p_product_item_number}} <br/>
+	Product ID: {{p.ProductInfo.p_product_id}} <br/>
+	Price: {{p.ProductInfo.p_product_price}} <br/>
+	<button ng-mouseover="get_details(p.ProductInfo.p_product_id)">View More</button>
+	</center>
+</div>
+</body>
+</html>
